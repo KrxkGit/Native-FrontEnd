@@ -1,0 +1,96 @@
+/* 元素/标签 选择*/
+p {
+    color: blue;
+}
+
+dl {
+    color: #f40;
+}
+
+li, dd {
+    color: green;
+}
+
+h1 {
+    color: blueviolet;
+}
+/*多个元素选择*/
+h2, h3 {
+    color: aquamarine;
+}
+
+pre, time {
+    color: rgb(48, 0, 206);
+}
+
+
+a {
+    color: black;
+    transition: 0.3s; /*添加过度效果*/
+}
+
+/*伪选择器，悬停标签变红*/
+a:hover {
+    font-size: large;
+    color: red;
+}
+
+/*ID选择*/
+#pic-1 {
+    transition: 0.6s; /*应该加在此处而不应该加在 :hover, 否则移开时没有过渡效果*/
+}
+#pic-1:hover {
+    width: 20%; /*此步会修改dom树*/
+    /*transform: scale(120%); !*transform 在dom树建立之后，故不修改 dom 树*!*/
+}
+
+/*属性选择，img必须包含属性src才被选择*/
+img[src] {
+    display: block; /*img 默认是行级的，块级才具备margin等盒子属性*/
+    width: 15%;
+    margin: 20px auto;
+}
+
+button {
+    background-color: antiquewhite;
+    transition: 0.6s;
+}
+
+button:hover {
+    transform: scale(120%);
+}
+
+/*类选择器*/
+.content {
+    color: bisque;
+}
+
+html {
+    text-align: center; /*使行级元素居中. ol与ul是块级的，而li是行级的*/
+}
+
+#Span_box {
+    color: rgb(168, 49, 201);
+}
+
+figure {
+    color: #f3905d;
+}
+
+#ol-list {
+    background-image: url("../images/background-image.jpg");
+
+}
+
+table {
+    text-align: center; /*表内元素为行级，可继承该属性*/
+    margin: 0 auto;
+}
+
+tbody {
+    font-size: 95%;
+    font-style: italic;
+}
+tfoot {
+    font-weight: bold;
+}

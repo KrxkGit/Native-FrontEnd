@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Krxk">
+    <meta name="viewport" content="width=device-width">
+    <title>Native</title>
+    <link rel="icon" href="favicon.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/style.css"> <!--样式表-->
+    <script src="./scripts/my_alert.js" defer></script>
+    <script>console.log('内联脚本')</script> <!--内联脚本defer属性无效-->
+</head>
+<body>
+    <div class="content">
+        <h1 id="Page_Top">原生前端</h1>
+        <h2>图片-1</h2>
+        <img id="pic-1" src="images/test-pic.jpg" width="3468" alt="GoodMe-1" />
+        <h2>图片-2</h2>
+        <a href="http://www.baidu.com" title="跳转百度" target="_blank">
+            <img src="images/test-pic-2.jpg" width="3468" alt="GoodMe-2" title="古茗奶茶">
+        </a>
+        <h2>图片-3</h2>
+        <figure>
+            <img src="images/test-pic-3.jpg" alt="国际校区" title="国际校区" width="3468">
+            <figcaption>拍摄于国际校区</figcaption>
+        </figure>
+        <h2>列表</h2>
+        <h3>无序列表</h3>
+        <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Est molestias nam ratione.</li>
+            <li>Ducimus maiores repellendus sit?</li>
+            <li>Earum eveniet hic qui!</li>
+            <li>Lorem ipsum dolor sit.</li>
+        </ul>
+        <h3>有序列表</h3>
+        <ol>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+            <li>Atque autem eveniet fugiat, odit possimus tenetur voluptatem!</li>
+            <li>Distinctio esse illo ipsam officiis rem sapiente tempora.</li>
+            <li>Ducimus eligendi expedita libero nobis nostrum quo sint.</li>
+            <li>Ab assumenda cumque, debitis in incidunt quo sed!</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+            <li>Ab consequatur dolore dolorum iste, magnam quisquam voluptatum?</li>
+            <li>Dignissimos illum impedit quibusdam sequi tenetur velit vero.</li>
+            <li>Atque incidunt laboriosam mollitia nemo neque, sed sit.</li>
+            <li>Architecto, doloribus inventore ipsum laboriosam quos soluta voluptatum!</li>
+            <li>Est incidunt magnam porro quae quidem similique ut!</li>
+            <li>Ad, eius facere modi officia officiis suscipit veniam!</li>
+            <li>Alias aperiam eveniet expedita minima optio perferendis, voluptate.</li>
+        </ol>
+        <h3>嵌套列表</h3>
+        <ol id="ol-list">
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Amet repellendus fuga ullam aliquam!</li>
+            <li>Sint sit iste blanditiis at!</li>
+            <li>Accusantium nostrum consequatur consequuntur eaque!</li>
+            <li>
+                <ul>
+                    <li>Lorem <em>dolor</em> sit amet consectetur adipisicing.</li>
+                    <li>Tempora <strong>molestias</strong> tenetur, minus ratione nostrum ipsam?</li>
+                    <li>Deserunt aut <mark>nesciunt</mark> facere repudiandae laudantium veniam!</li>
+                    <li>1&lt;2 &amp; 3&gt;2</li>
+                </ul>
+            </li>
+            <li>Lorem ipsum dolor sit.</li>
+            <li>Nam consectetur error magni!</li>
+            <li>Architecto similique at praesentium.</li>
+        </ol>
+        <h3>描述列表</h3>
+        <dl>
+            <dt>Lorem, ipsum dolor.</dt>
+                <dd>Lorem ipsum dolor sit amet consectetur.</dd>
+                <dd>Sequi, alias nihil. Culpa, odio illum!</dd>
+                <dd>Quam vitae quod aliquam harum molestiae!</dd>
+                <dd>Possimus expedita earum rerum inventore eligendi!</dd>
+                <dd>Quia tempore laboriosam nulla in reprehenderit.</dd>
+            <dt>Libero, magni vel.</dt>
+                <dd>Lorem ipsum dolor sit, amet consectetur adipisicing.</dd>
+                <dd>Illo sapiente autem necessitatibus nihil aperiam ad?</dd>
+            <dt>Doloremque, mollitia voluptatibus!</dt>
+            <dd>Lorem ipsum dolor sit.</dd>
+            <dd>Quaerat incidunt illum dolore!</dd>
+            <dd>Consequatur veritatis cum voluptas.</dd>
+        </dl>
+        <h2>段落</h2>
+        <p>Lorem ipsum dolor.</p>
+        <p>Dicta, dignissimos, facilis?</p>
+        <p>Consequuntur, nesciunt nobis.</p>
+        <p>Illo omnis, tenetur.</p>
+        <p>Animi, modi, natus!</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <p>Consectetur earum explicabo facere rem?</p>
+        <p>Aspernatur consectetur cumque dolorem saepe?</p>
+        <p>A ea inventore quaerat soluta!</p>
+        <p>Consectetur itaque quae quasi rem?</p>
+
+        <h2>链接</h2>
+        <a href="https://github.com/KrxkGit">作者主页</a>
+        <a href="#Page_Top">跳转顶部</a>
+
+        <a href="https://developer.mozilla.org/zh-CN/docs/Learn/Front-end_web_developer"
+        target="_blank" title="MDN 文档">
+            <h2>前端学习网站</h2>
+        </a>
+
+        <a href="images/test-pic.jpg"
+        download="Test-pic.jpg">下载本站示例图片</a> <!--似乎无效-->
+
+        <a href="mailto:Krxkmail@gmail.com?cc=12320@qq.com&bcc=123@qq.com&subject=Happy%20Birthday&body=Happy%20Birthday%20To%20Krxk.">向我发送邮件</a>
+        
+        <h2>引用</h2>
+        <p>块引用</p>
+        <blockquote cite="https://www.baidu.com">
+            <p>引用百度</p>
+        </blockquote>
+
+        <p>行内引用
+            <q cite="https://www.baidu.com">引用百度</q>
+        </p>
+
+        <h2>缩略语</h2>
+        <p>
+            我们使用<abbr title="超文本标记语言">HTML</abbr>来组织网页文档。
+        </p>
+
+        <h2>
+            标记联系方式
+        </h2>
+        <address>
+            <p>Krxk</p>
+            <ul>
+                <li>123@qq.com</li>
+                <li>Krxkmail@gmail.com</li>
+            </ul>
+        </address>
+
+        <h2>上下标</h2>
+        <p>
+            x<sup>2</sup>=1
+        </p>
+        <p>
+            CH<sub>4</sub>为甲烷。
+        </p>
+
+        <h2>代码</h2>
+        <pre>
+            <code> <!--空格对齐可能出问题-->
+                int add(int x, int y) {
+                    return x + y;
+                }
+                int main() {
+                    printf("Result: %d\n", add(1, 2));
+                }
+            </code>
+            <samp>
+                Result: 3
+            </samp>
+        </pre>
+
+        <h2>日期</h2>
+        <time datetime="2022-4-20">2022年4月20日</time>
+
+        <h2>按钮</h2>
+        <button>点击我，图片对调 & 停止计时</button>
+        <a href="./layout.html">
+            <p>经典布局展示</p>
+        </a>
+    </div>
+    <div>
+        <h2>多媒体</h2>
+        <audio id="audio-elem" controls autoplay>
+            <source src="musics/GG-Bond.mp3" type="audio/mp3"/>
+            <p>本浏览器不支持 HTML5 音频</p>
+        </audio>
+        <br /><br />
+        <button id="RePlayAudio">重播音频</button>
+        <br /><br />
+        <video controls muted width="500">
+            <source src="videos/1.mp4" type="video/mp4" />
+            <p>本浏览器暂不支持 HTML5 视频，请更换浏览器。</p>
+        </video>
+        <h2>矢量图</h2>
+        <svg width="300" height="200">
+            <rect width="100%" height="100%" fill="green"/>
+            <circle r="90" fill="blue" cx="150" cy="100"/> <!--cx,cy为圆心坐标-->
+        </svg>
+        <img src="images/MindMap.png" alt="思维导图" srcset="MindMap.svg" />
+    </div>
+    <div>
+        <h2>嵌入</h2>
+        <iframe src="//player.bilibili.com/player.html?aid=878312000&bvid=BV1yN4y1i7k8&cid=1395319780&p=1"
+                scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+            <!--sandbox 模式需要赋予某些权限，此处未考虑-->
+            嵌入B站视频
+        </iframe>
+    </div>
+    <div>
+        <h2>表格</h2>
+        <table>
+            <caption>这是一个表格</caption>
+            <colgroup>
+                <col style="background-color: #def354">
+                <col style="background-color:#f3905d" span="2">
+                <col style="background-color: #f31ac5">
+            </colgroup>
+            <thead>
+            <tr>
+               <th colspan="4">Krxk's Table</th>
+            </tr>
+            <tr>
+                <th rowspan="2">ID</th>
+            </tr>
+            <th scope="row">First</th>
+            <th scope="row">Second</th>
+            <th scope="row">Third</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <th scope="col">1</th>
+                    <td>Lorem.</td>
+                    <td>Ab?</td>
+                    <td>Nam.</td>
+                </tr>
+                <tr>
+                    <th scope="col">2</th>
+                    <td>Lorem.</td>
+                    <td>Sapiente.</td>
+                    <td>Blanditiis.</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="col">总结</th>
+                    <td>Summary 1</td>
+                    <td>Summary 2</td>
+                    <td>Summary 3</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!--加载 JavaScript 脚本-->
+    <script src="scripts/main.js" defer></script>
+</body>
+</html>
