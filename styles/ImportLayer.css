@@ -1,0 +1,8 @@
+@layer  { /*嵌套层是夹在外层之间的，故只要外层有定义属性，该属性就会被外层覆盖*/
+    div {
+        border-width: 4px !important;
+        margin: 0;
+        /*background-color: #cf7df3 !important;*/
+        color: #3a0fda;
+    }
+}

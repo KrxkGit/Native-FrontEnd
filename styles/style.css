@@ -35,6 +35,10 @@ a:hover {
     color: red;
 }
 
+a:visited {
+    color: #f31ac5;
+}
+
 /*ID选择*/
 #pic-1 {
     transition: 0.6s; /*应该加在此处而不应该加在 :hover, 否则移开时没有过渡效果*/
@@ -83,14 +87,36 @@ figure {
 }
 
 table {
+    table-layout: fixed; /*往往更可控*/
+    width: 80%;
+    border-collapse: collapse; /*删除单元格之间的空隙*/
     text-align: center; /*表内元素为行级，可继承该属性*/
     margin: 0 auto;
+    border: 2px #f3905d dashed;
+    padding: 1.5em;
+}
+
+caption {
+    /*caption-side: bottom; !*使表格标题位于表格下方*!*/
 }
 
 tbody {
     font-size: 95%;
     font-style: italic;
 }
+
+tbody tr:nth-child(odd) {
+    background-color: #def354;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #cf7df3;
+}
+
 tfoot {
     font-weight: bold;
+}
+
+body h2 + p.special{ /* > 是选择首个元素， + 是选择相邻元素， 空格是选择所有子元素 */
+    color: #f31ac5;
 }

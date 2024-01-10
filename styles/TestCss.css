@@ -1,0 +1,266 @@
+@import "ForImport.css";
+@import "ImportLayer.css" layer(components); /*导入样式表并添加到components*/
+
+@layer components {
+    div {
+        border-width: 3px !important;
+        margin: 2px;
+    }
+}
+
+ul {
+    color: #f32cc1;
+    font-size: 150%;
+}
+
+ul {
+    colour: #5205ea; /*错误的属性，此行会被忽略，而下一正确行会被执行并覆盖*/
+    font-size: 200%;
+}
+
+ul {
+    color: #cf7df3;/*将覆盖上一规则*/
+    font-family: Gabriola;
+}
+
+.special-ul { /*优先级高于元素选择器*/
+    font-size: 80%;
+}
+
+/*h1,*/
+/*..special-ul { !*错误语法的会使整个列表匹配失效，即h1也不会被匹配*!*/
+/*    font-size: 150%;*/
+/*}*/
+
+ul.special-ul {
+    text-align: center;
+}
+
+div.outer {
+    border: 5px solid black;
+}
+
+div.box {
+    padding: 10px;
+    width: calc(90% - 30px); /*包含块的90% 并减 30px*/
+    background-color: #2c7cf3;
+    color: white;
+}
+
+div.rotate-box {
+    border: 5px solid black;
+    transform: rotate(0.01turn); /*顺时针转 0.01 圈*/
+}
+
+/*@规则*/
+div.outer {
+    background-color: #def354;
+    padding: 10px 20px; /*顺时针方向：上下，左右*/
+}
+
+@media (min-width: 1300px) {
+    div.outer {
+        background-color: #cf7df3;
+        padding: 10px 20px 30px 20px; /*顺时针方向：上右下左。注意：省略的值会恢复默认值并覆盖*/
+    }
+}
+
+
+ul:first-line {
+    color: #3ef359;
+}
+
+article *:first-child { /*全局选择器*/
+    color: #3ef359;
+}
+
+li#special {
+    background-color: #cf7df3;
+}
+
+li[class~="a"] { /*用空格分割属性，若分割后的class属性任何一个为a，则匹配*/
+    background-color: #f3905d;
+}
+
+li[class|="aa"] { /*aa或aa后跟一个连字符*/
+    background-color: #def354;
+}
+
+
+li[krxk*="ab"] { /*包含ab*/
+    font-size: 150%;
+}
+
+li[krxk^="ab"] { /*ab开头*/
+    background-color: #2c7cf3;
+}
+
+li[krxk$="ab"] { /*ab结尾*/
+    font-size: 130%;
+}
+
+li[krxk="aba" i] { /*大小写不敏感匹配*/
+    font-family: Bahnschrift;
+}
+
+div.pseudo p:first-child{ /*伪类*/
+    background-color: #cf7df3;
+}
+
+div.pseudo p::first-line { /*伪元素*/
+    font-size: 150%;
+}
+
+div.pseudo p::before { /*在前面生成伪元素*/
+    content: "→";
+}
+
+div.pseudo p::after { /*在后面生成伪元素*/
+    content: "←";
+}
+
+div.brother ul { /*选择所有后代 p，可继承*/
+    background-color: #f3905d;
+    font-size: 80%;
+}
+
+div.brother > ul { /*选择直接后代，不可继承*/
+    background-color: #def354;
+    font-size: 150%;
+}
+
+div.position h1 ~ p { /*h1所有邻接*/
+    border: 3px solid #f32cc1;
+}
+
+div.position h1 + p { /*与h1邻接*/
+    font-size: 150%;
+    border: 2px solid black;
+}
+
+div.inherit ul { /*定义包含块属性*/
+    color: #f3905d; /*该属性可继承*/
+    border: 3px dashed #cf7df3; /*该属性不可继承*/
+}
+
+div.inherit ul li.my-class-1 a { /*继承包含块属性*/
+    color: inherit;
+}
+
+div.inherit ul li.my-class-2 a { /*设置为初值*/
+    color: initial;
+}
+
+div.inherit ul li.my-class-3 a { /*设置为自然值，若可继承则继承 inherit；否则为 initial*/
+    color: unset;
+}
+
+div.all blockquote {
+    background-color: #def354;
+    border: 2px dashed black;
+}
+
+div.all blockquote.fix {
+    all: unset; /*重设所有样式为自然值*/
+}
+
+/*特异性： 023, 由于23 >12 故本规则优先级更高 */
+div.Grade ul li.my-class-1 {
+    background-color: #def354;
+}
+
+/*特异性 012*/
+ul li.my-class-1 {
+    background-color: #f31ac5;
+}
+
+div.Grade ul li.my-class-1 {
+    background-color: #def354;
+}
+
+div.Grade ul li.my-class-2 {
+    background-color: #2bf35a;
+}
+
+div.Grade ul li.my-class-3 {
+    background-color: #2c7cf3 !important; /*!important 比内联样式优先级更高 */
+}
+
+div.Grade ul li.my-class-3 {
+    background-color: #2bf35a !important; /*!important 优先级在同层内是后覆盖前，而不同层之间是逆序。另外，不分层的常规样式优先级
+    更高(含!important则逆序)*/
+}
+
+/*分层。先定义的层在底层，常规层在顶层。非Important属性由层叠顺序决定显示最上层；Important属性是由底层根基决定*/
+div.layer p { /*特异性：012*/
+    background-color: #cf7df3;
+}
+
+div.layer p#speId { /*特异性112，由于是常规层，故在最顶层*/
+    background-color: #f3905d;
+}
+
+@layer firstLayer { /*第一层*/
+    div.layer p#speId {
+        background-color: #3ef359;
+        border: 3px solid #f40 !important;
+        font-family: "Arial Unicode MS";
+    }
+    div.layer p#speId { /*同层都是后覆盖前*/
+        background-color: #def354;
+        border: 3px solid #3a0fda !important;
+        font-family: Arvo;
+    }
+}
+
+@layer secondLayer { /*第二层*/
+    div.layer p#speId {
+        background-color: #3ef359;
+        border: 4px dashed #f32cc1 !important;
+    }
+}
+
+/*媒体查询结合层*/
+@media (min-width: 1300px) {
+    @layer site;
+}
+
+@layer page {
+    div.media-query p {
+        background-color: #cf7df3;
+    }
+}
+
+@layer site {
+    div.media-query p {
+        background-color: #def354;
+    }
+}
+
+/**
+总结：
+层的优先权顺序是创建层的顺序。
+一旦创建，就无法更改层顺序。
+普通样式的层优先权是创建层的顺序。
+未分层普通样式优先于有层普通样式。
+重要样式的层优先权被反转，早期创建的层具有优先权。
+所有有层的重要样式都优先于未分层的重要（和普通）样式。
+普通内联样式优先于所有普通样式，无论是否分层。
+重要内联样式优先于所有其他样式，正在过渡的样式除外。
+作者样式无法覆盖重要内联样式（过渡除外，但这是临时的）。
+**/
+
+/*CSS 原生自定义变量*/
+:root {
+    /*选择器定义了变量的可见域*/
+    --main-color: #b04918; /*变量名大小写敏感，且必须以 -- 开头*/
+}
+
+div.var::after {
+    content: "This is the content.";
+}
+
+div.var {
+    background-color: var(--main-color); /*var 函数引用自定义变量 */
+}
+

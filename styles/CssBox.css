@@ -1,0 +1,131 @@
+/*
+外部样式决定了如何排开外部元素(通过边框 margin border padding)，主要有 block 与 inline 两者方式。
+另外 inline-block 是一种中间形式，其不换行但具有边框。
+而内部样式决定了内容如何布局：如 flex。
+其中边框有两种模型：标准模型与替代模式(通过指定 box-sizing: border-box;).
+盒子只包括border及以内部分，margin不计算在盒子大小中。
+*/
+
+.box {
+    margin: 2em 1em;
+    padding: 1em;
+    background-color: #def354;
+}
+
+.box span {
+    display: block; /*display 将改变外部显示样式*/
+    box-sizing: border-box;
+    background-color: #cf7df3;
+}
+
+div.background {
+    color: #f40;
+    background-image: url("../images/background-image.jpg");
+    background-repeat: no-repeat; /*背景图片的重复方式*/
+    background-attachment: fixed; /*背景的滚动方式 scroll 固定于元素，随页面滚动；fixed 固定于视口；local 随元素滚动*/
+    background-position: 20px top; /*背景图偏移,第一个值为水平位移，第二个值为垂直位移，位移中心为左上角(0,0)*/
+    background-size: contain; /*背景大小. contain 包含在盒子内; cover 保证覆盖盒子; 另外可为长度，百分数等*/
+}
+
+div.background.child { /*渐变背景*/
+    color: #f3905d;
+    background: rgb(2,0,36);
+    background: linear-gradient(129deg, rgba(2,0,36,1) 0%, rgba(9,102,121,1) 13%, rgba(0,212,255,1) 100%);
+}
+
+div.background.multi {
+    /*越前定义视图越靠前*/
+    background-image: url("../images/background-image.jpg"),
+    linear-gradient(150deg, rgba(2,0,36,1) 20%, rgba(9,102,121,1) 80%, rgba(0,212,255,1) 90%);;
+    background-repeat: repeat; /*缺省值将采用前一对应值的重复*/
+    background-position: 10px 20px, top right; /*距离top 10px, 距离right 20px*/
+    background-size: contain;
+    background-attachment: local;
+    border-radius: 30% 30%; /*边框圆角：水平方向，垂直方向*/
+}
+
+div.writing-mode h2 {
+    /*逻辑模式是根据书写模式映射的属性*/
+    inline-size: 200px; /*逻辑模式下 width 的映射属性*/
+    padding-inline: .5em; /*逻辑模式下 padding right left 的映射属性*/
+    padding-block: .8em; /*逻辑模式下 padding top bottom 的映射属性*/
+    border: .1em dashed #f31ac5;
+}
+
+div.writing-mode h2#wm-1 {
+    display: inline-block;
+    writing-mode: horizontal-tb;
+}
+
+div.writing-mode h2#wm-2 {
+    display: inline-block;
+    writing-mode: vertical-rl; /*块方向从右往左，文字纵向书写，这与文字本身相关：如英语是从右往左，而汉字是从上往下*/
+}
+
+div.overflow p {
+    width: 500px;
+    height: 100px;
+    border: #cf7df3 2px solid;
+
+    overflow: scroll; /*控制溢出的显示方式： scroll 显示滚动条; visible 直接可见; hidden 隐藏; auto 自动在溢出时显示滚动条 */
+    overflow-x: scroll; /*允许在水平方向滚动*/
+}
+
+div.overflow p::first-line {
+    font-size: 150%;
+}
+
+div.unit {
+    font-size: 20px; /*20 像素*/
+}
+
+div.unit.box {
+    font-size: 1.5em; /*相对父元素的字体大小的 1.5*/
+}
+
+div.unit.box::after {
+    content: "lorem";
+}
+
+ul.em li { /* 选择该类中所有li,包括嵌套的li */
+    font-size: 1.2em;
+}
+
+ul.em > li { /* 相对单位 继承是计算为静态值后再进行继承的 */
+    font-size: 1.5em;
+}
+
+ul.rem {
+    font-size: 1.2rem;
+    border-bottom: #cf7df3 solid 2px;
+    margin-bottom: 0;
+}
+
+div.unit .size-box {
+    overflow: auto;
+    min-width: 100px; /*设置最小的宽度*/
+    max-height: 100px; /*设置最大高度*/
+    width: calc(95% - 90px); /*通过 calc 进行简单的计算 */
+    height: calc(200px);
+    padding: 10vw 0;
+    margin: 5%; /*使用百分比作为元素外边距（margin）或填充（padding）的单位时，值是以包含块的 内联尺寸 进行计算的*/
+    background-color: #cf7df3;
+    border: #def354 dashed 10px;
+}
+
+div.react-img {
+    margin: auto;
+    width: 20vw; /*视口宽度的50%*/
+    height: 30vh;
+    border: 2px dashed #f32cc1;
+    padding: 1em;
+}
+
+div.react-img > .img-width {
+    max-width: 100%; /*该属性可以等比例缩放最大宽度*/
+
+    /*下列属性提供更多方案*/
+    width: 100%; /*父元素的100%*/
+    height: 100%;
+    object-fit: cover; /*cover contain fill 提供不同方案*/
+}

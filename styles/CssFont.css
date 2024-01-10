@@ -1,0 +1,119 @@
+@import "../fonts/stylesheet.css"; /*导入 font-face 到常规层*/
+/*@font-face { !*自定义字体*!*/
+/*    font-family: 'alex_brushregular';*/
+/*    src: url('../fonts/alexbrush-regular-webfont.woff2') format('woff2'),*/
+/*    url('../fonts/alexbrush-regular-webfont.woff') format('woff');*/
+/*    font-weight: normal;*/
+/*    font-style: normal;*/
+/*}*/
+
+:root {
+    --main-color: #f3905d;
+    --shadow-color: #8763a8;
+    --border-color: #5942f3;
+    --background-color: rgba(0, 0, 0, 0.8);
+    --link-color: rgba(112, 255, 126, 0.5);
+    --visited-color: #efc74a;
+    --focus-background-color: rgba(190, 114, 243, 0.5);
+    --hover-background-color: rgba(149, 255, 173, 0.8);
+    --active-background-color: rgba(208, 65, 202, 0.6);
+}
+
+
+html {
+    font-family: "Trebuchet MS" ,Serif;
+    color: var(--main-color);
+    font-size: 10px; /*如此 1em=10px， 将使 rem 单位使用更方便*/
+    text-align: left;
+    hyphens: auto; /*连字符*/
+    line-height: 1.2; /* 1.2倍行距 */
+    background-color: var(--background-color);
+}
+
+body {
+    font-size: 1.6rem; /*恢复支16px，由于继承的是静态值，故后代继承将16px，而rem单位依然以root即html元素为基准*/
+}
+
+h1 {
+    font-family: "alex_brushregular";
+    text-align: center; /*居中*/
+    text-transform: uppercase; /*转为全大写*/
+    font-style: italic; /*开启斜体*/
+    font-weight: bold; /*开启粗体*/
+    text-decoration: underline overline wavy; /*开启上下划线，采用波浪线*/
+    text-shadow: 2px 1px 5px var(--shadow-color); /*阴影， 水平偏移2px, 垂直偏移1px,模糊半径5px, 阴影颜色*/
+    padding-bottom: 1.5rem;
+    border-bottom: var(--border-color) solid 1px;
+}
+
+p {
+    font-family: 'Caveat', cursive;
+}
+
+p::first-line {
+    /*调整首行字母距离与单词距离*/
+    letter-spacing: 2px;
+    word-spacing: 4px;
+}
+
+/* || 统一段落格式*/
+p,ol,ul,dl {
+    font-size: 1.5rem;
+}
+
+/*列表项与段落样式*/
+li,p {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+/*描述列表样式*/
+dd,dt {
+    line-height: 1.5;
+}
+
+dt {
+    font-weight: bold;
+}
+
+/*列表特定样式*/
+ol {
+    list-style-type: upper-roman;
+    list-style-position: outside;
+    /*list-style-image: url("../images/krxk.svg"); !*自定义项目符号图片*!*/
+}
+
+ul {
+    list-style: square;
+}
+
+/*链接样式 LoVe Fears HAte*/
+a {
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+a:link {
+    color: var(--link-color);
+}
+a:visited {
+    color: var(--visited-color);
+}
+a:focus {
+    border-bottom: 1px solid;
+    background: var(--focus-background-color);
+}
+a:hover {
+    border-bottom: 1px solid;
+    background: var(--hover-background-color);
+    cursor: pointer; /*改变鼠标样式(默认hover时为 pointer)*/
+}
+a:active {
+    background: var(--active-background-color);
+    color: var(--hover-background-color);
+}
+a[href*="http"] {
+    background: url("../images/external-link-26.png") 100% 0 no-repeat; /*水平位移100%，垂直位移0*/
+    background-size: 16px 16px; /*重设背景图大小*/
+    padding-right: 19px; /*设置内边距防止与后面文字重叠*/
+}
