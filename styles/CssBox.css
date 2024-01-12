@@ -57,7 +57,8 @@ div.writing-mode h2#wm-1 {
     writing-mode: horizontal-tb;
 }
 
-div.writing-mode h2#wm-2 {
+div.writing-mode h2#wm-2,
+div.writing-mode h2#wm-3 {
     display: inline-block;
     writing-mode: vertical-rl; /*块方向从右往左，文字纵向书写，这与文字本身相关：如英语是从右往左，而汉字是从上往下*/
 }

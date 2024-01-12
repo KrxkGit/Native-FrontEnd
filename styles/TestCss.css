@@ -14,13 +14,13 @@ ul {
 }
 
 ul {
-    colour: #5205ea; /*错误的属性，此行会被忽略，而下一正确行会被执行并覆盖*/
+    colour: #5205ea; /*错误的属性名，此行会被忽略，而下一正确行会被执行并覆盖*/
     font-size: 200%;
 }
 
 ul {
     color: #cf7df3;/*将覆盖上一规则*/
-    font-family: Gabriola;
+    font-family: Gabriola, serif;
 }
 
 .special-ul { /*优先级高于元素选择器*/
@@ -58,11 +58,30 @@ div.outer {
     padding: 10px 20px; /*顺时针方向：上下，左右*/
 }
 
-@media (min-width: 1300px) {
+/*|| 媒体查询 响应式设计
+语法: @media [not] media-type and (media-feature-rule) [and (media-feature-rule)] [, 多重查询(类似于 or)] {}
+media-type: all print screen speech
+not 只能否定整重(以逗号分隔)查询结果，而无法否定单个表达式。
+
+orientation: 竖放（portrait mode）和 横放（landscape mode）
+hover: 用户可悬浮
+*/
+@media screen and (min-width: 1300px) and (orientation: landscape) and (hover: hover) { /*screen 表示屏幕，(..)为媒体特征条件表达式 */
     div.outer {
         background-color: #cf7df3;
         padding: 10px 20px 30px 20px; /*顺时针方向：上右下左。注意：省略的值会恢复默认值并覆盖*/
     }
+}
+
+@media print {
+    body {
+        font-size: 12pt;
+    }
+}
+
+/*浏览器特性查询*/
+@supports (display: grid) {
+    /* CSS 样式规则 Here */
 }
 
 
@@ -100,7 +119,7 @@ li[krxk$="ab"] { /*ab结尾*/
 }
 
 li[krxk="aba" i] { /*大小写不敏感匹配*/
-    font-family: Bahnschrift;
+    font-family: Bahnschrift, sans-serif;
 }
 
 div.pseudo p:first-child{ /*伪类*/
@@ -204,12 +223,12 @@ div.layer p#speId { /*特异性112，由于是常规层，故在最顶层*/
     div.layer p#speId {
         background-color: #3ef359;
         border: 3px solid #f40 !important;
-        font-family: "Arial Unicode MS";
+        font-family: "Arial Unicode MS", serif;
     }
     div.layer p#speId { /*同层都是后覆盖前*/
         background-color: #def354;
         border: 3px solid #3a0fda !important;
-        font-family: Arvo;
+        font-family: Arvo, sans-serif;
     }
 }
 

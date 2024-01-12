@@ -1,0 +1,337 @@
+header {
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    background-color: #cf7df3;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+body > header {
+    position: fixed;
+    width: 100%; /*fixed 模式是默认根据内容计算宽度的，手动指定宽度*/
+    top: 0;
+    margin: 0 auto; /*清除顶外边距*/
+}
+
+main { /*手动下移main，由于 标题已经脱离文档流(初始容器)，故只能在此处设置偏移（相对于html)*/
+    margin-top: 120px;
+}
+
+/* || Flex 布局*/
+section {
+    margin: 0.3rem 0.3rem 0 0; /*此处垂直方向将发生外边距折叠*/
+    display: flex; /*容器设置为弹性盒子，子元素将为flex-item*/
+    flex-direction: row; /*默认主轴为 row， 可设置为 column等*/
+    flex-wrap: wrap; /*包装行，溢出则换行模式*/
+}
+
+article {
+    padding: 0.5rem;
+    margin: 0 0.3rem;
+    border: #cf7df3 3px solid;
+    border-radius: 20px;
+    background-color: rgba(153, 243, 91, 0.8);
+
+    /*flex: 200px;!*最小宽度为200px，在wrap下溢出将移到下一行*!*/
+    flex: 1; /*占据1单位比例。注意 flex 比例空间是基于整体计算的，故需要给每项都配置flex值 */
+}
+
+article:nth-child(3) {
+    flex: 2; /*设置 Third article 占据2单位比例 */
+}
+
+article h2 {
+    color: #000;
+    text-align: center;
+}
+
+button {
+    font-size: 1.5rem;
+    width: 100px;
+    height: 50px;
+}
+
+.Buttons-flex {
+    margin: 1rem 0;
+    display: flex;
+
+    height: 100px; /*设定容器的高度*/
+    align-items: stretch; /*对齐到交叉轴，默认为 stretch*/
+    justify-content: space-around; /*控制在主轴的位置*/
+}
+
+.Buttons-flex :first-child { /*Buttons 类的子元素的伪类（第一个子元素)*/
+    /*border: 2px solid black;*/
+    align-self: flex-end; /*覆盖align-items的行为, 对齐到交叉轴的末尾*/
+    order: 1; /*将第一个元素移到最后。因为默认为0，越小排在越前，此方法不改变 dom树 */
+}
+
+article:nth-of-type(8) {
+    display: flex;
+    flex: 3 200px; /*占据3比例空间，其中确保最小值为200px*/
+    flex-direction: column;
+}
+
+article:nth-of-type(8) div:first-child {
+    flex: 1 100px;
+    display: flex;
+    flex-flow: wrap row; /*等同于 flex-direction: row; flex-wrap: wrap;*/
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* || Grid 布局*/
+
+/*设置盒子外观*/
+.grid-container div,
+.grid-container-2 div,
+div.contact{
+    background-color: #3dc05e;
+    border: 3px solid #00b3ff;
+    margin: 2px;
+    padding: 0.3rem;
+}
+
+.other-things {
+    margin: 0 1rem;
+    background-color: #57c4f5;
+    border: 2px solid #1883ba;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.grid-container {
+    display: grid; /*容器设置为网格布局，其直接子项将会变为网格项*/
+    grid-template-columns: 200px 200px repeat(2, 1fr); /*fr表示占用可用空间的比例, 使用repeat函数可重复构建*/
+
+    /*grid-row-gap: 20px;*/
+    /*grid-column-gap: 10px;*/
+    gap: 20px; /*网格间距，其中行列间距相同*/
+    grid-gap: 20px; /*兼容之前的标准，增强代码健壮性*/
+}
+
+.grid-container-2 {
+    margin-top: 1rem;
+    display: grid;
+
+    /*创建显式网格，当显式网格数量不够时，容器将生成隐式网格存放剩余内容*/
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: 200px; /*只创建一行的显式网格*/
+    grid-gap: 20px;
+
+    /*设置隐式网格参数*/
+    /*grid-auto-rows: 100px;*/
+    grid-auto-rows: minmax(50px, auto);
+}
+
+.grid-blog h2 {
+    text-align: center;
+}
+
+.grid-blog {
+    border: 2px dashed #a9562c;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+/*基于 序号 放置*/
+.grid-blog header {
+    margin: 1rem 1rem;
+    grid-column: 1 / 3; /*第1列开始，第3列结束*/
+    grid-row: 1; /*占据第1行*/
+}
+
+.grid-blog footer {
+    margin: 1rem 1px 0; /*顶部为1rem 右左为1px 底部为0。当参数数量不够时，按顺时针方向设置，然后通过对称方式获取参数*/
+    grid-column: 1 / 3; /*第1列开始，第3列结束*/
+    grid-row: 3;
+}
+
+.grid-blog article {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.grid-blog aside {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+/*基于 名称 放置*/
+.grid-blog-2 {
+    border: 2px dashed #a9562c;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-areas: "header header" "sidebar content" ". footer"; /*指定每个网格的内容。“."表示留空 */
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+}
+
+.grid-blog-2 header {
+    grid-area: header;
+}
+
+.grid-blog-2 article {
+    grid-area: content;
+}
+
+.grid-blog-2 aside {
+    grid-area: sidebar;
+}
+
+.grid-blog-2 footer {
+    text-align: right;
+    grid-area: footer;
+}
+
+.float-layout,
+.float-layout-2 {
+    margin: 1rem;
+    border: 2px solid #f31ac5;
+    padding: 3px;
+}
+
+.float-box {
+    width: 50%;
+    height: 100px;
+    text-align: center;
+    padding: 1rem;
+    background-color: #3dc05e;
+    border: 2px solid #cf7df3;
+    border-radius: 5px;
+
+    float: left; /*浮动布局，贴近父容器左侧。其他元素环绕*/
+    /*margin-right: 20px; !*设置右外边距*!*/
+    margin: 20px;
+}
+
+/*此处可以观察到：float 影响的是内联盒子，而段落p的块盒并未受浮动元素的影响*/
+.float-layout > p:first-of-type,
+.float-layout-2 .wrapper {
+    background-color: #2c7cf3;
+    color: #ffffff;
+}
+
+.float-layout > p:nth-of-type(2) {
+    clear: left;
+}
+
+/*如何使包裹浮动元素的盒子下方元素不再浮动*/
+/*方案一: 利用 after 伪元素*/
+/*.float-layout-2 .wrapper::after {
+    !*content: "Commodi deleniti deserunt, dolores eveniet explicabo fuga, inventore ipsam itaque, molestiae";*!
+    content: "";
+    clear: both;
+    display: block; !*默认是行内模式，无法排开下面内容，故需要修改为块模式*!
+}*/
+
+/*方案二*/
+/*浮动元素本质是脱离了正常文档流，故对于包裹的盒子来说浮动元素超出部分是溢出的。
+而由于没有设定包裹盒子的高度，故包裹盒子高度将自动增大以包裹浮动元素*/
+/*.float-layout-2 .wrapper {
+    !*创建了块格式上下文BFC*!
+    overflow: auto; !*非 visible即可 *!
+    overflow-y: auto; !*自动显示滚动条*!
+
+}*/
+/*若设定高度可观察到溢出现象*/
+/*.wrapper {
+    height: 100px;
+}*/
+
+/*方案三：使用 flow-root */
+.float-layout-2 .wrapper {
+    display: flow-root;
+}
+
+/*定位*/
+.position {
+    border: 2px solid #f31ac5;
+    margin: 1rem;
+}
+
+.position p {
+    border: 2px solid #f31ac5;
+    padding: .3rem;
+    background-color: #00b3ff;
+    color: white;
+    margin: .5rem;
+}
+
+.position > p:nth-of-type(2) {
+    /*
+    static: 正常文档流位置
+    relative: 相对正常文档流位置
+
+    absolute: 脱离文档流，元素会形成新层。相对包含元素位置(!默认元素position属性为static，
+    即处于初始块容器中，而html元素默认也处于该初始容器中，而absolute是形成一个新的层，即放在html的外面，根据视口进行定位。
+
+    总结：absolute是根据容器进行定位的，而只要 position属性不为static，元素将放入一个新容器。故只要最近祖先元素position属性不为
+    static，将成为新的锚点)
+    *
+
+    fixed:相对视口
+
+    sticky: 未达到指定位置前为相对位置，到达指定位置后固定。其中指定位置的定位上下文为 视口/
+     */
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+
+.position { /*让父容器放在新容器，作为absolute新锚点*/
+    position: relative;
+}
+
+.position > p:nth-of-type(1) {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+
+    z-index: 1; /*默认auto为0，正值靠近屏幕外，越处于顶层；越是负值越靠近底层。
+    另外，均为absolute元素的定位默认顺序是根据html文档后覆盖前的顺序 */
+}
+
+.position > p:nth-of-type(3) {
+    position: fixed;
+    top: 50%;
+
+    width: 30%;
+}
+
+.sticky {
+    font-size: 1.5rem;
+}
+
+.sticky dt {
+    position: sticky;
+    top: 0;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/*|| 多列布局*/
+.multi-column h2 {
+    text-align: center;
+}
+.multi-column .card {
+    border: #3dc05e 2px dashed;
+    padding: 2px;
+    margin: 2px;
+    background-color: #cf7df3;
+
+    /*保证 card 作为整体 不被多列拆断*/
+    break-inside: avoid;
+    page-break-inside: avoid
+}
+.multi-column {
+    margin: 10px;
+    border: 2px solid #f32cc1;
+    padding: 20px;
+    column-count: 3; /*创建3列*/
+    /*column-width: 200px; !*根据200px的列宽创建尽可能多的列*!*/
+    column-gap: 20px; /*列间隙*/
+    column-rule: #00b3ff dotted 5px; /*在列间隙中绘制分割线*/
+}
