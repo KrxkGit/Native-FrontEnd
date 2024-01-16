@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestJS</title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/TestJS.css">
+    <script src="scripts/TestJs.js" defer></script> <!--引入脚本-->
+</head>
+<body>
+<header>
+    <h1>TestJS</h1>
+</header>
+<main>
+    <div>
+        <a href="TestSelector.html">TestSelector</a>
+    </div>
+    <div class="container">
+        <div class="box">
+            <button>按下我</button>
+            <input type="text" id="textBox">
+        </div>
+    </div>
+    <form>
+        <label for="fname">FirstName: </label>
+        <input type="text" id="fname">
+        <input type="submit" value="提交" id="submit">
+    </form>
+    <div id="region">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+    </div>
+    <div id="Object-box">
+        <button id="set-alarm">Set alarm</button>
+        <button id="gen-prime">Gen Prime</button>
+        <form>
+            <label for="Name">姓名</label>
+            <input type="text" id="Name">
+            <br>
+            <label for="Delay">延迟</label>
+            <input type="text" id="Delay">
+            <br>
+            <label for="quota">质数数量</label>
+            <input type="text" id="quota" value="1000000">
+
+        </form>
+        <div id="alarm-output"></div>
+        <div id="genPrime-output"></div>
+<!--        <script src="scripts/Object.js" async></script>-->
+<!--        <script src="scripts/TryClass.js" async></script>-->
+<!--        <script src="scripts/CallBack.js" async></script>-->
+<!--        <script src="scripts/UsePromise.js" async></script>-->
+        <script src="scripts/ImplPromiseAPI.js" async></script>
+        <script src="scripts/TryWorkers.js" defer></script>
+    </div>
+</main>
+<footer>
+
+</footer>
+
+</body>
+</html>

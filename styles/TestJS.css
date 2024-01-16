@@ -1,0 +1,22 @@
+.box {
+    border: 3px solid #57c4f5;
+    padding: 2rem;
+    margin: 1rem auto;
+    background-color: rgb(2,2,2);
+}
+
+p {
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.tile {
+    height: 100px;
+    width: 25%;
+    float: left;
+}
+
+
+#region {
+    border: 3px dotted #cf7df3;
+}
