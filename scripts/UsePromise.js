@@ -58,7 +58,7 @@ Promise.any([fetchPromise1, fetchPromise2, fetchPromise3]) /*任何一个 Promis
 async function fetchProducts() { /*函数整体是异步的，另外异步函数的返回值总是 Promise */
     console.log('Async function is called.')
     try {
-        const response = await fetch( /*await 可以拿到 Promise*/
+        const response = await fetch( /*await 可以拿到 Promise 最后的内容 */
             'https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json'
         )
         if (!response.ok) {

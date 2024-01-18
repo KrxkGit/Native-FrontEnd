@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Form</title>
+  <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styles/TestForm.css">
+</head>
+<body>
+<header>
+  <h1>表单</h1>
+</header>
+<main>
+  <form action="https://www.baidu.com" method="post" id="user-info">
+    <ul>
+      <li>
+        <label for="name">用户名:</label>
+        <input type="text" id="name" name="user_name" value="Krxk"> <!--name 属性用于指定提交表单数据时的字段名-->
+      </li>
+      <li>
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="user_password" placeholder="******">
+      </li>
+      <li>
+        <button type="submit">提交</button>
+      </li>
+    </ul>
+  </form>
+  <script src="scripts/TestForm.js" defer></script>
+</main>
+</body>
+</html>
